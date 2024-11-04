@@ -4,11 +4,12 @@ services:
   app:
     build:
       context: .
+      dockerfile: Dockerfile
     container_name: app
-    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s
-    command: node index.js
-    volumes:
-      - .:/usr/src/app
+    # entrypoint: dockerize -wait tcp://db:3306 -timeout 20s
+    # command: npm install && node index.js
+    # volumes:
+    #   - .:/usr/src/app
     tty: true
     networks:
       - node-network
